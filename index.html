@@ -1,119 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fancy Responsive Buttons</title>
+  <title>مريومة ♥</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
     body {
-      background: #27282c;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background: #fefefe;
     }
-
-    .container {
-      width: 100%;
-      max-width: 900px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
+    h1 {
+      font-size: 2.5rem;
     }
-
-    a {
-      --color: #fff;
-      position: relative;
-      font-size: 1.4rem;
-      letter-spacing: 0.1rem;
-      padding: 0.75rem 1.5rem;
-      color: #fff;
-      text-decoration: none;
-      transition: 0.5s;
-    }
-
-    a:hover {
-      letter-spacing: 0.25rem;
-      background: var(--color);
-      color: var(--color);
-      box-shadow: 0 0 35px var(--color);
-    }
-
-    a::before {
-      content: '';
-      position: absolute;
-      inset: 2px;
-      background: #27282c;
-    }
-
-    a span {
-      position: relative;
-      z-index: 1;
-    }
-
-    a i {
-      position: absolute;
-      inset: 0;
-      display: block;
-    }
-
-    a i::before, a i::after {
-      content: '';
-      position: absolute;
-      width: 10px;
-      height: 5px;
-      border: 2px solid var(--color);
-      background: #27282c;
-      transform: translateX(-50%);
-      transition: 0.5s;
-    }
-
-    a i::before {
-      top: -3.5px;
-      left: 80%;
-    }
-
-    a i::after {
-      bottom: -3.5px;
-      left: 20%;
-    }
-
-    a:hover i::before {
-      left: 20%;
-      width: 20px;
-    }
-
-    a:hover i::after {
-      left: 80%;
-      width: 20px;
-    }
-
-    @media (max-width: 600px) {
-      a {
-        font-size: 1rem;
-        padding: 0.5rem 1rem;
-      }
+    button {
+      padding: 10px 25px;
+      background-color: #ff4ecb;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
+  <h1 id="name">أهلاً!</h1>
+  <button onclick="fetchName()">هات اسمي من بايثون</button>
 
-  <div class="container">
-    <a href="./kanao.html" style="--color: #1e9bff"><span>kanao</span><i></i></a>
-    <a href="#" style="--color: #ff1867"><span>botton</span><i></i></a>
-    <a href="#" style="--color: #6eff3e"><span>botton</span><i></i></a>
-  </div>
-
+  <script>
+    function fetchName() {
+      fetch("/get-name")
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById("name").innerText = "هاي " + data.name;
+        })
+        .catch(err => {
+          console.error("في مشكلة يا حب:", err);
+        });
+    }
+  </script>
 </body>
 </html>
