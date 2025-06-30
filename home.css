@@ -1,17 +1,9 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
 body {  
-  font-family: 'Poppins', sans-serif;  
-  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);  
-  color: white;  
-}  
-
-header {  
+      margin: 0;  
+      font-family: 'Poppins', sans-serif;  
+      background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);  
+      color: white;  
+    }  header {  
   padding: 20px;  
   display: flex;  
   justify-content: space-between;  
@@ -89,7 +81,6 @@ header {
 .intro-text {  
   text-align: center;  
   margin: 40px 20px 10px;  
-  padding-top: 100px; /* ✅ عشان المحتوى ما يختفيش ورا الهيدر */
 }  
 
 .intro-text h2 {  
