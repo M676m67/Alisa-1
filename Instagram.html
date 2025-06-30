@@ -1,0 +1,277 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instagram Downloader</title>
+  <link rel="icon" href="https://files.catbox.moe/1u78o6.jpg" type="image/png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+      color: white;
+      overflow-x: hidden;
+    }header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: #1e1e2f;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 24px;
+  background: linear-gradient(90deg, #f48fb1, #a18cd1, #fbc2eb);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: shine 3s infinite linear;
+}
+
+@keyframes shine {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.menu-toggle {
+  font-size: 22px;
+  color: white;
+}
+
+.intro-text {
+  text-align: center;
+  margin-top: 100px;
+  padding: 20px;
+}
+
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease-in-out;
+}
+
+.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.download-box {
+  background: rgba(255, 255, 255, 0.05);
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 600px;
+  text-align: center;
+}
+
+.title-box {
+  background: linear-gradient(to right, #8b5cf6, #f43f5e);
+  padding: 10px;
+  border-radius: 15px 15px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.download-box input {
+  width: 90%;
+  padding: 12px;
+  border: none;
+  margin-top: 15px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.download-box button {
+  margin-top: 15px;
+  padding: 12px 24px;
+  border: none;
+  background: linear-gradient(to right, #8b5cf6, #f43f5e);
+  color: white;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-download {
+  display: block;
+  padding: 12px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #8b5cf6, #f43f5e);
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.btn-download:hover {
+  background: linear-gradient(135deg, #7a4de1, #e3394e);
+}
+
+.how-to {
+  background: rgba(255, 255, 255, 0.05);
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 600px;
+}
+
+.how-to h3 {
+  color: #f43f5e;
+  margin-bottom: 10px;
+}
+
+.how-to ul {
+  padding-left: 20px;
+}
+
+.how-to li {
+  margin-bottom: 10px;
+}
+
+.socials {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.socials a {
+  margin: 0 10px;
+  font-size: 30px;
+  color: white;
+}
+
+.socials a:hover {
+  color: #f43f5e;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://files.catbox.moe/1u78o6.jpg" alt="logo">
+      <h1>Kurosaki Downloader</h1>
+    </div>
+    <div class="menu-toggle"><i class="fas fa-ellipsis-v"></i></div>
+  </header>  <section class="intro-text scroll-animate">
+    <h2><i class="fab fa-instagram"></i> Instagram Video Downloader</h2>
+    <p>Download Instagram videos quickly and easily</p>
+  </section>  <div class="download-box scroll-animate">
+    <div class="title-box">
+      <i class="fab fa-instagram"></i>
+      <h3>Instagram Downloader</h3>
+    </div>
+    <p>Paste the URL of the Instagram post, reel, or story you want to download. Our tool will extract the content and provide a download link.</p>
+    <input type="text" id="instaUrl" placeholder="Paste Instagram video URL here...">
+    <button onclick="downloadInstaVideo()"><i class="fas fa-spinner fa-spin" style="display: none" id="spinner"></i> <span id="btnText">Get Content</span></button>
+    <p id="instaError"></p>
+    <div id="videoContainer"></div>
+  </div>  <div class="how-to scroll-animate">
+    <h3>How to Download Instagram Content</h3>
+    <ul>
+      <li>1. Copy the URL of the Instagram post, reel, or story</li>
+      <li>2. Paste the URL in the input field above</li>
+      <li>3. Click the "Get Content" button</li>
+      <li>4. Click "Download Content" button to save the content</li>
+    </ul>
+  </div>  <hr>  <div class="socials scroll-animate">
+    <a href="https://wa.me/201015709086" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.instagram.com/eve_chan00?igsh=ZDEzb20yZGplNWdw" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>  <script>
+    async function downloadInstaVideo() {
+      const url = document.getElementById("instaUrl").value.trim();
+      const errorMsg = document.getElementById("instaError");
+      const container = document.getElementById("videoContainer");
+      const spinner = document.getElementById("spinner");
+      const btnText = document.getElementById("btnText");
+
+      errorMsg.textContent = "";
+      container.innerHTML = "";
+      spinner.style.display = "inline-block";
+      btnText.textContent = "Processing...";
+
+      if (!url) {
+        errorMsg.textContent = "Please enter an Instagram URL";
+        errorMsg.style.color = "red";
+        spinner.style.display = "none";
+        btnText.textContent = "Get Content";
+        return;
+      }
+
+      const api = `https://k4i.xyz/v1/api/downloader/insta?url=${encodeURIComponent(url)}`;
+
+      try {
+        const res = await fetch(api);
+        const data = await res.json();
+
+        if (!data.kurosaki || !Array.isArray(data.kurosaki)) {
+          throw new Error("Content not found or invalid link");
+        }
+
+        const links = data.kurosaki.map((url, index) => `
+          <a href="${url}" class="btn-download" download>
+            <i class="fas fa-download"></i> Download Content ${data.kurosaki.length > 1 ? index + 1 : ""}
+          </a>
+        `).join("");
+
+        container.innerHTML = `
+          <video width="100%" controls autoplay style="border-radius: 10px; box-shadow: 0 0 10px #000;">
+            <source src="${data.kurosaki[0]}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px;">
+            ${links}
+          </div>
+        `;
+      } catch (err) {
+        errorMsg.textContent = "Error: " + err.message;
+        errorMsg.style.color = "red";
+      } finally {
+        spinner.style.display = "none";
+        btnText.textContent = "Get Content";
+      }
+    }
+
+    function revealOnScroll() {
+      document.querySelectorAll('.scroll-animate').forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        const inView = top < window.innerHeight - 35;
+        el.classList.toggle('visible', inView);
+      });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+  </script></body>
+</html>
