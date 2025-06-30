@@ -56,11 +56,13 @@ header {
   100% { background-position: 200% center; }  
 }  
 
-.menu-toggle {  
-  font-size: 22px;  
-  cursor: pointer;  
-}  
-
+.menu-toggle {
+  font-size: 22px;
+  cursor: pointer;
+  color: white;
+  z-index: 1000; 
+  position: relative; 
+}
 .dropdown {  
   display: none;  
   position: absolute;  
