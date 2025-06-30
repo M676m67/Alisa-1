@@ -8,9 +8,11 @@ html, body {
 }
 
 header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 1000;
+  left: 0;
+  width: 100%;
+  z-index: 999;
   background: #1e1e2f;
   padding: 20px;
   display: flex;
@@ -57,7 +59,6 @@ main {
   100% { background-position: 200% center; }
 }
 
-/* القائمة المنسدلة */
 .menu-toggle {
   font-size: 22px;
   cursor: pointer;
@@ -85,13 +86,11 @@ main {
 .dropdown a:hover {
   background: #444;
 }
-
-/* النص التعريفي */
 .intro-text {
   text-align: center;
   margin: 40px 20px 10px;
+  padding-top: 120px; 
 }
-
 .intro-text h2 {
   font-size: 26px;
   margin-bottom: 10px;
@@ -108,8 +107,6 @@ main {
   margin: 0 auto;
   max-width: 500px;
 }
-
-/* الكروت */
 .card, .about-section {
   opacity: 0;
   transform: translateY(30px);
@@ -191,8 +188,6 @@ main {
   transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(0,0,0,0.5);
 }
-
-/* قسم التعريف */
 .about-section {
   background: rgba(255, 255, 255, 0.05);
   margin: 60px auto 40px;
