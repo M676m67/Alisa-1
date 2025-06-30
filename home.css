@@ -81,6 +81,7 @@ body {
 .intro-text {  
   text-align: center;  
   margin: 40px 20px 10px;  
+  padding-top: 120px;
 }  
 
 .intro-text h2 {  
