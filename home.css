@@ -1,22 +1,16 @@
-/* أساسي */
 html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  height: 100%;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
   color: white;
-  padding-top: 100px; /* علشان ما يتغطاش بالمينيو */
+  overflow-x: hidden;
 }
 
-/* الهيدر */
 header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
+  z-index: 1000;
   background: #1e1e2f;
   padding: 20px;
   display: flex;
@@ -24,6 +18,9 @@ header {
   align-items: center;
 }
 
+main {
+  padding-top: 100px;
+}
 .logo {
   display: flex;
   align-items: center;
