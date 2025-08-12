@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,279 +15,133 @@
       background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
       color: white;
       overflow-x: hidden;
-    }header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-  background: #1e1e2f;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo img {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  margin-right: 10px;
-  object-fit: cover;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-}
-
-.logo h1 {
-  margin: 0;
-  font-size: 24px;
-  background: linear-gradient(90deg, #f48fb1, #a18cd1, #fbc2eb);
-  background-size: 200% auto;
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation: shine 3s infinite linear;
-}
-
-@keyframes shine {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
-}
-
-.menu-toggle {
-  font-size: 22px;
-  color: white;
-}
-
-.intro-text {
-  text-align: center;
-  margin-top: 100px;
-  padding: 20px;
-}
-
-.card, .about-section {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.6s ease-out;
-}
-
-.visible {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-.download-box {
-  background: rgba(255, 255, 255, 0.05);
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 20px;
-  max-width: 600px;
-  text-align: center;
-}
-
-.title-box {
-  background: linear-gradient(to right, #8b5cf6, #f43f5e);
-  padding: 10px;
-  border-radius: 15px 15px 0 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: center;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.download-box input {
-  width: 90%;
-  padding: 12px;
-  border: none;
-  margin-top: 15px;
-  border-radius: 10px;
-  font-size: 16px;
-}
-
-.download-box button, .dl-btn {
-  margin-top: 15px;
-  padding: 12px 24px;
-  border: none;
-  background: linear-gradient(to right, #8b5cf6, #f43f5e);
-  color: white;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  transition: background 0.3s;
-}
-
-.download-box button:disabled {
-  background: gray;
-  cursor: not-allowed;
-}
-
-.how-to {
-  background: rgba(255, 255, 255, 0.05);
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 20px;
-  max-width: 600px;
-}
-
-.how-to h3 {
-  color: #f43f5e;
-  margin-bottom: 10px;
-}
-
-.how-to ul {
-  padding-left: 20px;
-}
-
-.how-to li {
-  margin-bottom: 10px;
-}
-
-.socials {
-  text-align: center;
-  margin: 30px 0;
-}
-
-.socials a {
-  margin: 0 10px;
-  font-size: 30px;
-  color: white;
-}
-
-.socials a:hover {
-  color: #f43f5e;
-}
-
-  </style>
-</head>
-<body>
- <body>
-
-  <header>
-    <div class="logo">
-      <img src="https://files.catbox.moe/1u78o6.jpg" alt="logo">
-      <h1>Kanao Downloader</h1>
-    </div>
-    <div class="menu-toggle"><i class="fas fa-ellipsis-v"></i></div>
-  </header>
-
-  <section class="intro-text scroll-animate">
-    <h2><i class="fab fa-tiktok"></i> TikTok Video Downloader</h2>
-    <p>Download TikTok videos without watermark</p>
-  </section>
-
-  <div class="download-box scroll-animate">
-    <div class="title-box">
-      <i class="fab fa-tiktok"></i>
-      <h3>TikTok Downloader</h3>
-    </div>
-    <p class="description">
-      Paste the URL of the TikTok video you want to download. Our tool will extract the video without watermark and provide download links.
-    </p>
-    <input type="text" id="tiktokUrl" placeholder="Paste TikTok video URL here...">
-    <button onclick="downloadVideo()" id="downloadBtn">
-      <span id="btnText">Get Content</span>
-      <span id="loadingSpinner" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Processing...</span>
-    </button>
-    <p id="errorMsg"></p>
-    <div id="videoContainer" class="scroll-animate"></div>
-  </div>
-
-  <div class="how-to scroll-animate">
-    <h3>How to Download TikTok Videos</h3>
-    <ul>
-      <li>1. Open the TikTok app and find the video you want to download</li>
-      <li>2. Tap the "Share" button and select "Copy Link"</li>
-      <li>3. Paste the URL in the input field above</li>
-      <li>4. Click the "Get Content" button</li>
-      <li>5. Click the preferred download button below the video</li>
-    </ul>
-  </div>
-
-  <hr>
-
-  <div class="socials scroll-animate">
-    <a href="https://wa.me/201015709086" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://www.instagram.com/eve_chan00?igsh=ZDEzb20yZGplNWdw" target="_blank"><i class="fab fa-instagram"></i></a>
-  </div>
-
-  <script>
-    async function downloadVideo() {
-      const url = document.getElementById("tiktokUrl").value.trim();
-      const errorMsg = document.getElementById("errorMsg");
-      const container = document.getElementById("videoContainer");
-      const btnText = document.getElementById("btnText");
-      const spinner = document.getElementById("loadingSpinner");
-
-      errorMsg.textContent = "";
-      container.innerHTML = "";
-      btnText.style.display = "none";
-      spinner.style.display = "inline-block";
-
-      if (!url) {
-        errorMsg.textContent = "Please enter a TikTok URL";
-        errorMsg.style.color = "red";
-        btnText.style.display = "inline-block";
-        spinner.style.display = "none";
-        return;
-      }
-
-      const api = `https://k4i.xyz/v1/api/downloader/tiktok?url=${encodeURIComponent(url)}`;
-
-      try {
-        const res = await fetch(api);
-        const data = await res.json();
-
-        if (!data.kurosaki || !data.kurosaki.playUrl) {
-          throw new Error("Video not found or invalid link");
-        }
-
-        const videoUrl = data.kurosaki.playUrl;
-        const wmUrl = data.kurosaki.watermarkUrl || videoUrl;
-        const audioUrl = data.kurosaki.musicUrl;
-
-        container.innerHTML = `
-          <video width="100%" controls autoplay style="border-radius: 10px; box-shadow: 0 0 10px #000;">
-            <source src="${videoUrl}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px;">
-            <a href="${videoUrl}" class="btn-download" download><i class="fas fa-download"></i> Download Without Watermark</a>
-            <a href="${wmUrl}" class="btn-download" download><i class="fas fa-download"></i> Download With Watermark</a>
-            <a href="${audioUrl}" class="btn-download" download><i class="fas fa-music"></i> Download Audio Only</a>
-          </div>
-        `;
-      } catch (err) {
-        errorMsg.textContent = "Error: " + err.message;
-        errorMsg.style.color = "red";
-      } finally {
-        btnText.style.display = "inline-block";
-        spinner.style.display = "none";
-      }
     }
-
-    // scroll animation
-    function revealOnScroll() {
-      document.querySelectorAll('.scroll-animate').forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        const inView = top < window.innerHeight - 35;
-        el.style.opacity = inView ? 1 : 0;
-        el.style.transform = inView ? 'translateY(0)' : 'translateY(40px)';
-      });
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      background: #1e1e2f;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-
-    window.addEventListener("scroll", revealOnScroll);
-    window.addEventListener("load", revealOnScroll);
-  </script>
-
-  <style>
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      margin-right: 10px;
+      object-fit: cover;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    }
+    .logo h1 {
+      margin: 0;
+      font-size: 24px;
+      background: linear-gradient(90deg, #f48fb1, #a18cd1, #fbc2eb);
+      background-size: 200% auto;
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      animation: shine 3s infinite linear;
+    }
+    @keyframes shine {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+    .menu-toggle {
+      font-size: 22px;
+      color: white;
+    }
+    .intro-text {
+      text-align: center;
+      margin-top: 100px;
+      padding: 20px;
+    }
+    .card, .about-section {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease-out;
+    }
+    .visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+    .download-box {
+      background: rgba(255, 255, 255, 0.05);
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 20px;
+      max-width: 600px;
+      text-align: center;
+    }
+    .title-box {
+      background: linear-gradient(to right, #8b5cf6, #f43f5e);
+      padding: 10px;
+      border-radius: 15px 15px 0 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .download-box input {
+      width: 90%;
+      padding: 12px;
+      border: none;
+      margin-top: 15px;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+    .download-box button {
+      margin-top: 15px;
+      padding: 12px 24px;
+      border: none;
+      background: linear-gradient(to right, #8b5cf6, #f43f5e);
+      color: white;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .download-box button:disabled {
+      background: gray;
+      cursor: not-allowed;
+    }
+    .how-to {
+      background: rgba(255, 255, 255, 0.05);
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 20px;
+      max-width: 600px;
+    }
+    .how-to h3 {
+      color: #f43f5e;
+      margin-bottom: 10px;
+    }
+    .how-to ul {
+      padding-left: 20px;
+    }
+    .how-to li {
+      margin-bottom: 10px;
+    }
+    .socials {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .socials a {
+      margin: 0 10px;
+      font-size: 30px;
+      color: white;
+    }
+    .socials a:hover {
+      color: #f43f5e;
+    }
     .btn-download {
       display: block;
       padding: 12px;
@@ -298,16 +153,176 @@
       text-decoration: none;
       transition: background 0.3s;
     }
-
     .btn-download:hover {
       background: linear-gradient(135deg, #7a4de1, #e3394e);
     }
-
     .scroll-animate {
       opacity: 0;
       transform: translateY(40px);
       transition: all 0.6s ease-in-out;
     }
+    /* شاشة التحميل */
+    #loadingScreen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+      color: white;
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+    .loading-bar {
+      width: 60%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+    .progress {
+      height: 100%;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      width: 0%;
+      animation: loadAnim 2s infinite;
+    }
+    @keyframes loadAnim {
+      0% { width: 0%; }
+      50% { width: 80%; }
+      100% { width: 0%; }
+    }
   </style>
+</head>
+<body>
+
+<!-- شاشة التحميل -->
+<div id="loadingScreen">
+  <div class="loading-bar">
+    <div class="progress"></div>
+  </div>
+  <p>Checking API...</p>
+</div>
+
+<header>
+  <div class="logo">
+    <img src="https://files.catbox.moe/1u78o6.jpg" alt="logo">
+    <h1>Kanao Downloader</h1>
+  </div>
+  <div class="menu-toggle"><i class="fas fa-ellipsis-v"></i></div>
+</header>
+
+<section class="intro-text scroll-animate">
+  <h2><i class="fab fa-tiktok"></i> TikTok Video Downloader</h2>
+  <p>Download TikTok videos without watermark</p>
+</section>
+
+<div class="download-box scroll-animate">
+  <div class="title-box">
+    <i class="fab fa-tiktok"></i>
+    <h3>TikTok Downloader</h3>
+  </div>
+  <p>Paste the URL of the TikTok video you want to download.</p>
+  <input type="text" id="tiktokUrl" placeholder="Paste TikTok video URL here...">
+  <button onclick="downloadVideo()" id="downloadBtn">
+    <span id="btnText">Get Content</span>
+    <span id="loadingSpinner" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Processing...</span>
+  </button>
+  <p id="errorMsg"></p>
+  <div id="videoContainer" class="scroll-animate"></div>
+</div>
+
+<div class="how-to scroll-animate">
+  <h3>How to Download TikTok Videos</h3>
+  <ul>
+    <li>1. Copy the link from TikTok</li>
+    <li>2. Paste it above</li>
+    <li>3. Click "Get Content"</li>
+    <li>Click the preferred download button below the video</li>
+  </ul>
+</div>
+
+<div class="socials scroll-animate">
+  <a href="https://wa.me/201015709086"><i class="fab fa-whatsapp"></i></a>
+  <a href="https://www.instagram.com/eve_chan00?igsh=ZDEzb20yZGplNWdw"><i class="fab fa-instagram"></i></a>
+</div>
+
+<script>
+async function checkAPI() {
+  try {
+    const res = await fetch("https://www.tikwm.com/api/?url=https://www.tiktok.com/@tiktok/video/722790087871");
+    if (!res.ok) throw new Error("API Failed");
+    document.getElementById("loadingScreen").style.display = "none";
+  } catch (err) {
+    window.location.href = "test.html";
+  }
+}
+
+async function downloadVideo() {
+  const url = document.getElementById("tiktokUrl").value.trim();
+  const errorMsg = document.getElementById("errorMsg");
+  const container = document.getElementById("videoContainer");
+  const btnText = document.getElementById("btnText");
+  const spinner = document.getElementById("loadingSpinner");
+
+  errorMsg.textContent = "";
+  container.innerHTML = "";
+  btnText.style.display = "none";
+  spinner.style.display = "inline-block";
+
+  if (!url) {
+    errorMsg.textContent = "Please enter a TikTok URL";
+    errorMsg.style.color = "red";
+    btnText.style.display = "inline-block";
+    spinner.style.display = "none";
+    return;
+  }
+
+  const api = `https://www.tikwm.com/api/?url=${encodeURIComponent(url)}`;
+
+  try {
+    const res = await fetch(api);
+    const data = await res.json();
+
+    if (!data.data || !data.data.play) throw new Error("Invalid video link");
+
+    container.innerHTML = `
+      <video width="100%" controls autoplay style="border-radius: 10px; box-shadow: 0 0 10px #000;">
+        <source src="${data.data.play}" type="video/mp4">
+      </video>
+      <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px;">
+        <a href="${data.data.play}" class="btn-download" download>Download Without Watermark</a>
+        <a href="${data.data.wmplay}" class="btn-download" download>Download With Watermark</a>
+        <a href="${data.data.music}" class="btn-download" download>Download Audio</a>
+      </div>
+    `;
+  } catch (err) {
+    errorMsg.textContent = "Error: " + err.message;
+    errorMsg.style.color = "red";
+  } finally {
+    btnText.style.display = "inline-block";
+    spinner.style.display = "none";
+  }
+}
+
+function revealOnScroll() {
+  document.querySelectorAll('.scroll-animate').forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 35) {
+      el.style.opacity = 1;
+      el.style.transform = 'translateY(0)';
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", () => {
+  checkAPI();
+  revealOnScroll();
+});
+</script>
 </body>
-</html> 
+</html>
